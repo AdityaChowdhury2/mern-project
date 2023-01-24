@@ -1,0 +1,26 @@
+//This is in backend
+[.] bcryptjs uses for secure password
+[.] cors helps to access api in front end that are created in backend
+[.] express is minimalist web framework for nodeJs
+[.] mongoose is object modeling tool for MongoDB.
+[.] morgan is a http request logger when a api request is made it shows in console 
+[.] jsonwebtoken JWTs are usually used to manage user sessions on a website. While they're an important part of the token based authentication process, JWTs themselves are used for authorization, not authentication.
+jwt Explained here --
+When you sign in to a site with a username and password, or with a third party method like Google, you're proving who you are with those sensitive details or access. This process is called authentication.
+
+Once you're signed in, the site's server sends back a JWT that allows you access to things like your settings page, shopping cart, and so on. This process is called authorization.
+
+You send your JWT to the server with each request. When the server receives it, it generates a signature using using some data from your JWT, verifies it, and if your JWT is valid, it sends back a response.
+[.] Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env. if we use api key and password for database we have to keep them secret from others when we upload our code in code hosting platform for version control and collaboration like github.
+
+//This is in frontend
+[.] @reduxjs/toolkit
+[.] mui-chips-input
+[.] @mui/material @emotion/react @emotion/styled
+[.] react-router-dom
+[.] mdb-react-ui-kit
+[.] moment
+[.] react-file-base64
+[.] react-redux
+[.] react-toastify
+[.] axios
