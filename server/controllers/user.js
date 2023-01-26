@@ -76,31 +76,19 @@ export const signUp = async (req, res) => {
 };
 
 export const googleSignIn = async (req, res) => {
-	const { token } = req.body;
+	const { email, name, token, googleId } = req.body;
 	try {
-		console.log(req.body);
-		res.status(200).json({ token });
+		const oldUser = await UserModal.findOne({ email: email });
+		if (oldUser) {
+			const result = { _id: oldUser._id.toString(), email, name };
+			return res.status(200).json({ result, token });
+		}
+		const result = await UserModal.create({ name, email, googleId });
+		// console.log(req.body);
+		res.status(200).json({ result, token });
 	} catch (err) {
 		// if any errors are encountered then send a message with errors
 		res.status(500).json({ message: "Something went wrong" });
 		console.log(err);
 	}
-	// try {
-	// 	const oldUser = await UserModal.findOne({ email: email });
-	// 	if (oldUser) {
-	// 		const result = { _id: oldUser._id.toString(), email, name };
-	// 		return res.status(200).json({ result, token });
-	// 	}
-	// 	//if user login for first time then the user details should be sent in mongodb
-	// 	const result = await UserModal.create({
-	// 		name,
-	// 		email,
-	// 		googleId,
-	// 	});
-	// 	res.status(200).json({ result, token });
-	// } catch (err) {
-	// 	// if any errors are encountered then send a message with errors
-	// 	res.status(500).json({ message: "Something went wrong" });
-	// 	console.log(err);
-	// }
 };
